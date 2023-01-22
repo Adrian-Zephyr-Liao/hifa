@@ -1,8 +1,13 @@
 {
   "compilerOptions": {
     "outDir": "dist",
-    "target": "ESNext" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
-    "module": "commonjs" /* Specify what module code is generated. */,
-    "rootDir": "src" /* Specify the root folder within your source files. */,
+    "target": "ES2017" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
+    "module": "ESNext" /* Specify what module code is generated. */,
+    "lib": ["esnext"],
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true
   }
 }
