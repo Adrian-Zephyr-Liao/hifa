@@ -1,33 +1,45 @@
 {
   "name": "hifa",
+  "type": "module",
   "version": "1.0.0",
   "description": "",
   "author": "RainyLiao",
   "license": "MIT",
   "keywords": [],
   "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/node/index.cjs",
+      "import": "./dist/node/index.js"
+    },
+    "./dist/*": "./dist/*",
+    "./package.json": "./package.json",
+    "./runtime": {
+      "type": "./runstime.d.ts",
+      "default": "./src/runtime/index.ts"
+    }
+  },
   "bin": {
     "hifa": "bin/hifa.mjs"
   },
-  "files": [
-    "dist",
-    "bin"
-  ],
   "scripts": {
     "commit": "gitmoji -c",
     "prepublishOnly": "npm run build",
-    "build": "unbuild",
-    "stub": "unbuild --stub"
+    "start": "tsup --watch",
+    "build": "tsup"
   },
   "dependencies": {
+    "@vitejs/plugin-vue": "^4.0.0",
     "cac": "^6.7.14",
-    "vite": "^4.0.4"
+    "vite": "^4.0.4",
+    "vue": "^3.2.45"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.34.1",
     "@types/node": "^18.11.18",
     "eslint": "^8.32.0",
-    "fast-glob": "^3.2.12",
+    "tsup": "^6.5.0",
     "typescript": "^4.9.4",
     "unbuild": "^1.1.1"
   }

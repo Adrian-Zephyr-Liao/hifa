@@ -1,9 +1,10 @@
 import path from 'node:path'
 import { cac } from 'cac'
-import pkg from '../../package.json'
 import { createDevServer } from './dev'
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const version = require('./../../package.json')
 
-const cli = cac('hifa').version(pkg.version).help()
+const cli = cac('hifa').version(version).help()
 
 cli
   .command('[root]', 'start dev server')
