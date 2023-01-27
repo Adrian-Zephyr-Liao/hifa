@@ -9,6 +9,7 @@ const add = () => {
 
 <template>
   <div>
+    This is Layout Component
     <span>当前值: {{ num }}</span>
     <button @click="add">
       点击

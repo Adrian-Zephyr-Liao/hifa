@@ -1,0 +1,20 @@
+{
+  "name": "basic",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "license": "MIT",
+  "keywords": [],
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "hifa dev docs",
+    "build": "hifa build docs",
+    "preview": "hifa start docs"
+  },
+  "dependencies": {
+    "hifa": "../../.."
+  }
+}
