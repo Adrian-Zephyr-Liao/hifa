@@ -4,7 +4,7 @@
     "rootDir": "src",
     "target": "ESNext" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
     "module": "ESNext" /* Specify what module code is generated. */,
-    "lib": ["esnext", "DOM"],
+    "lib": ["ESNext", "DOM"],
     "moduleResolution": "Node",
     "resolveJsonModule": false,
     "esModuleInterop": true,

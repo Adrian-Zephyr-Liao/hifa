@@ -1,6 +1,7 @@
 import path from 'node:path'
 import { cac } from 'cac'
 import { createDevServer } from './dev'
+import { build } from './build'
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const version = require('./../../package.json')
 
@@ -20,7 +21,13 @@ cli
 cli
   .command('build [root]', 'build for production')
   .action(async (root: string) => {
-    console.log('build', root)
+    try {
+      root = path.resolve(root)
+      await build(root)
+    }
+    catch (e) {
+      console.log(e)
+    }
   })
 
 cli.parse()
