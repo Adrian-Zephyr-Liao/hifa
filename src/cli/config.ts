@@ -10,7 +10,7 @@ type RawConfig =
 
 function getUserConfigPath(root: string) {
   try {
-    const supportConfigFiles = ['config.ts', 'config.js']
+    const supportConfigFiles = ['hifa.config.ts', 'hifa.config.js']
     const configPath = supportConfigFiles
       .map(file => resolve(root, file))
       .find(fs.pathExistsSync)
