@@ -1,6 +1,5 @@
 import path from 'node:path'
 import { cac } from 'cac'
-import { createDevServer } from './dev'
 import { build } from './build'
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const version = require('./../../package.json')
@@ -13,9 +12,16 @@ cli
   .action(async (root: string) => {
     // 添加以下逻辑
     root = root ? path.resolve(root) : process.cwd()
-    const server = await createDevServer(root)
-    await server.listen()
-    server.printUrls()
+    const { createDevServer } = await import('./dev.js')
+    const createServer = async () => {
+      const server = await createDevServer(root, async () => {
+        await server.close()
+        await createServer()
+      })
+      await server.listen()
+      server.printUrls()
+    }
+    await createServer()
   })
 
 cli

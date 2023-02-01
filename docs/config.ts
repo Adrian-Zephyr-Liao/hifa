@@ -1,5 +1,5 @@
 import { defineConfig } from '../dist/cli'
 
 export default defineConfig({
-  title: '123',
+  title: '23434321',
 })

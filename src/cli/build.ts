@@ -6,8 +6,11 @@ import { build as viteBuild } from 'vite'
 import pluginVue from '@vitejs/plugin-vue'
 import type { RollupOutput } from 'rollup'
 import { CLIENT_ENTRY_PATH, SERVER_ENTRY_PATH } from './constants'
+import pluginConfig from './plugin-hifa/config'
+import { resolveConfig } from './config'
 
 export async function bundle(root: string) {
+  const config = await resolveConfig(root, 'serve', 'production')
   const resolveViteConfig = (isServer: boolean): InlineConfig => {
     return {
       mode: 'production',
@@ -27,7 +30,7 @@ export async function bundle(root: string) {
         },
 
       },
-      plugins: [pluginVue()],
+      plugins: [pluginVue(), pluginConfig(config)],
     }
   }
   console.log('Building Server and Client.....')

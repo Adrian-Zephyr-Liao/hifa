@@ -1,6 +1,6 @@
 import { resolve } from 'node:path'
 import fs from 'fs-extra'
-import { loadConfigFromFile } from 'vite'
+import { loadConfigFromFile, normalizePath } from 'vite'
 import type { SiteConfig, UserConfig } from '../shared/types/index'
 
 type RawConfig =
@@ -16,7 +16,7 @@ function getUserConfigPath(root: string) {
       .find(fs.pathExistsSync)
     if (!configPath)
       throw new Error('Please create config files')
-    return configPath
+    return normalizePath(configPath)
   }
   catch (e) {
     console.error(`Failed to load user config: ${e}`)
