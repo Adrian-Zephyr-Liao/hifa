@@ -17,4 +17,5 @@ const add = () => {
       点击
     </button>
   </div>
+  <router-view />
 </template>

@@ -1,6 +1,7 @@
 import path from 'node:path'
 import { cac } from 'cac'
 import { build } from './build'
+import { resolveConfig } from './config'
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const version = require('./../../package.json')
 
@@ -29,7 +30,8 @@ cli
   .action(async (root: string) => {
     try {
       root = path.resolve(root)
-      await build(root)
+      const config = await resolveConfig(root, 'build', 'production')
+      await build(root, config)
     }
     catch (e) {
       console.log(e)

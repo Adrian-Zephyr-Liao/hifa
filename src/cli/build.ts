@@ -5,19 +5,21 @@ import type { InlineConfig } from 'vite'
 import { build as viteBuild } from 'vite'
 import pluginVue from '@vitejs/plugin-vue'
 import type { RollupOutput } from 'rollup'
+import type { SiteConfig } from 'shared/types'
 import { CLIENT_ENTRY_PATH, SERVER_ENTRY_PATH } from './constants'
 import pluginConfig from './plugin-hifa/config'
-import { resolveConfig } from './config'
 
-export async function bundle(root: string) {
-  const config = await resolveConfig(root, 'serve', 'production')
+export async function bundle(root: string, config: SiteConfig) {
   const resolveViteConfig = (isServer: boolean): InlineConfig => {
     return {
       mode: 'production',
       root,
+      // ssr: {
+      //   noExternal: ['vue-router'],
+      // },
       build: {
         ssr: isServer,
-        outDir: isServer ? '.temp' : 'build',
+        outDir: isServer ? join(root, '.temp') : join(root, 'build'),
         rollupOptions: {
           input: isServer ? SERVER_ENTRY_PATH : CLIENT_ENTRY_PATH,
           output: isServer
@@ -72,8 +74,8 @@ export async function renderPage(
   await fs.remove(join(root, '.temp'))
 }
 
-export async function build(root: string) {
-  const [clientBundle, serverBundle] = await bundle(root) as [RollupOutput, RollupOutput]
+export async function build(root: string, config: SiteConfig) {
+  const [clientBundle, serverBundle] = await bundle(root, config) as [RollupOutput, RollupOutput]
   // 引入 ssr 入口模块
   const serverEntryPath = resolve(root, '.temp', serverBundle.output[0].fileName)
   const { render } = (await import(pathToFileURL(serverEntryPath).toString()))
