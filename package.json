@@ -1,67 +1,36 @@
 {
-  "name": "hifa",
+  "name": "hifa-monorepo",
   "type": "module",
-  "version": "1.0.0",
-  "description": "",
-  "author": "RainyLiao",
+  "version": "0.0.1",
+  "private": true,
+  "packageManager": "pnpm@7.9.2",
+  "description": "Vite & Islands architecture SSG framework",
+  "author": "RainyLiao <liaowenrun@gmail.com>",
   "license": "MIT",
-  "keywords": [],
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "require": "./dist/node/index.cjs",
-      "import": "./dist/node/index.js"
-    },
-    "./dist/*": "./dist/*",
-    "./package.json": "./package.json",
-    "./runtime": {
-      "type": "./runstime.d.ts",
-      "default": "./src/runtime/index.ts"
-    }
-  },
-  "bin": {
-    "hifa": "bin/hifa.mjs"
-  },
+  "keywords": [
+    "vite",
+    "ssg",
+    "island architecture",
+    "docs",
+    "framework"
+  ],
   "scripts": {
+    "pnpm-install": "pnpm install",
     "prepare": "husky install",
     "commit": "gitmoji -c",
-    "prepublishOnly": "npm run build",
-    "start": "tsup --watch",
-    "build": "tsup",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "test:unit": "vitest",
-    "test:e2e": "playwright test",
-    "prepare:e2e": "tsx ./scripts/prepare-e2e.ts"
-  },
-  "dependencies": {
-    "@vitejs/plugin-vue": "^4.0.0",
-    "cac": "^6.7.14",
-    "consola": "^2.15.3",
-    "fast-glob": "^3.2.12",
-    "fs-extra": "^11.1.0",
-    "rollup": "^3.11.0",
-    "vite": "^4.0.4",
-    "vue": "^3.2.45",
-    "vue-router": "^4.1.6"
+    "dev:docs": "hifa dev docs"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.34.1",
-    "@playwright/test": "^1.30.0",
-    "@types/fs-extra": "^11.0.1",
-    "@types/node": "^18.11.18",
-    "@vitest/ui": "^0.28.2",
     "commitlint": "^17.4.2",
     "commitlint-config-gitmoji": "^2.2.10",
     "eslint": "^8.32.0",
-    "execa": "^6.1.0",
+    "hifa": "workspace:*",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.0",
-    "tsup": "^6.5.0",
-    "tsx": "^3.12.2",
-    "typescript": "^4.9.4",
-    "unbuild": "^1.1.1",
-    "vitest": "^0.28.2"
+    "typescript": "^4.9.4"
   },
   "lint-staged": {
     "**/*": [

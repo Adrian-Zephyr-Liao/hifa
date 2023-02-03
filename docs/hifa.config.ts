@@ -1,5 +1,5 @@
-import { defineConfig } from '../dist/cli'
+import { defineConfig } from '../packages/hifa/dist/cli'
 
 export default defineConfig({
-  title: '4321',
+  title: '43214323',
 })

@@ -1,5 +1,4 @@
-node_modules
+**/node_modules/**
 pnpm-lock.yaml
-dist
-bin
-docs/build
+**/dist/**
+**/build/**
