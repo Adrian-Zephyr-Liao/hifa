@@ -51,12 +51,10 @@ export default function pages(options: PluginOptions): Plugin {
       }
       server.watcher.add(scanDir).unwatch([...DEFAULT_EXCLUDE, ...(options?.userOptions?.exclude || [])])
         .on('add', async (file) => {
-          console.log('🚀 ~ file: index.ts:54 ~ .on ~ file', file)
           await routeService.addRoute(file)
           fileChange()
         })
         .on('unlink', async (file) => {
-          console.log('🚀 ~ file: index.ts:58 ~ .on ~ file', file)
           await routeService.removeRoute(file)
           fileChange()
         })

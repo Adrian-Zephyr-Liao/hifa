@@ -3,11 +3,10 @@ import { pathToFileURL } from 'node:url'
 import fs from 'fs-extra'
 import type { InlineConfig } from 'vite'
 import { build as viteBuild } from 'vite'
-import pluginVue from '@vitejs/plugin-vue'
 import type { RollupOutput } from 'rollup'
 import type { SiteConfig } from 'shared/types'
 import { CLIENT_ENTRY_PATH, SERVER_ENTRY_PATH } from './constants'
-import pluginConfig from './plugin-hifa/config'
+import { createVitePlugins } from './vitePlugins'
 
 export async function bundle(root: string, config: SiteConfig) {
   const resolveViteConfig = (isServer: boolean): InlineConfig => {
@@ -32,7 +31,7 @@ export async function bundle(root: string, config: SiteConfig) {
         },
 
       },
-      plugins: [pluginVue(), pluginConfig(config)],
+      plugins: createVitePlugins(config),
     }
   }
   console.log('Building Server and Client.....')
