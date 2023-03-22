@@ -20,18 +20,20 @@
     "commit": "gitmoji -c",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "dev:docs": "hifa dev docs"
+    "dev:docs": "hifa dev docs",
+    "test": "vitest"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.34.1",
-    "commitlint": "^17.4.2",
-    "commitlint-config-gitmoji": "^2.2.10",
-    "eslint": "^8.32.0",
+    "@antfu/eslint-config": "^0.34.2",
+    "commitlint": "^17.4.4",
+    "commitlint-config-gitmoji": "^2.3.1",
+    "eslint": "^8.36.0",
     "eslint-plugin-mdx": "^2.0.5",
-    "hifa": "workspace:*",
+    "hifa": "workspace:1.0.0",
     "husky": "^8.0.3",
-    "lint-staged": "^13.1.0",
-    "typescript": "^4.9.4"
+    "lint-staged": "^13.2.0",
+    "typescript": "^4.9.5",
+    "vitest": "^0.29.7"
   },
   "lint-staged": {
     "**/*": [

@@ -15,6 +15,7 @@ export function createVitePlugins(
     pluginConfig(config, restartServer),
     pluginRoutes({
       root: config.root,
+      extensions: ['vue', 'md', 'mdx', 'ts', 'tsx', 'js', 'jsx'],
     }),
     createPluginMdx(),
   ]

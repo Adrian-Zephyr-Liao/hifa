@@ -13,9 +13,6 @@ export async function bundle(root: string, config: SiteConfig) {
     return {
       mode: 'production',
       root,
-      // ssr: {
-      //   noExternal: ['vue-router'],
-      // },
       build: {
         ssr: isServer,
         outDir: isServer ? join(root, '.temp') : join(root, 'build'),
@@ -29,7 +26,6 @@ export async function bundle(root: string, config: SiteConfig) {
                 format: 'esm',
               },
         },
-
       },
       plugins: createVitePlugins(config),
     }

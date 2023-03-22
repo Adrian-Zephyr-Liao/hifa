@@ -1,5 +1,5 @@
 import pluginMdx from '@mdx-js/rollup'
-import { babel } from '@rollup/plugin-babel'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 import remarkPluginGFM from 'remark-gfm'
 import rehypePluginAutolinkHeadings from 'rehype-autolink-headings'
 import rehypePluginSlug from 'rehype-slug'
@@ -31,10 +31,8 @@ export function pluginMdxRollup() {
       ],
       jsx: true,
     }),
-    babel({
-      extensions: ['.js', '.jsx', '.cjs', '.mjs', '.md', '.mdx'],
-      plugins: ['@vue/babel-plugin-jsx', '@babel/plugin-transform-runtime'],
-      babelHelpers: 'runtime',
+    vueJsx({
+      include: [/\.[jt]sx$/, /\.mdx?$/, /\.md?$/],
     }),
   ]
 }
