@@ -1,8 +1,9 @@
 import { createSSRApp } from 'vue'
 import { createMemoryHistory, createRouter } from 'vue-router'
 import { renderToString } from 'vue/server-renderer'
+import { routes } from 'hifa:pages'
 import App from './App.vue'
-import { routes } from './Content'
+// import { routes } from './Content'
 
 const app = createSSRApp(App)
 const router = createRouter({

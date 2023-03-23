@@ -1,0 +1,29 @@
+.hifa-doc div[class*='language-'].line-numbers-mode {
+  padding-left: 32px;
+}
+
+.hifa-doc.line-number-disable div[class*='language-'].line-numbers-mode {
+  padding-left: 0px;
+}
+
+.hifa-doc .line-numbers-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+  padding-top: 16px;
+  width: 36px;
+  text-align: center;
+  font-family: var(--island-font-family-mono);
+  line-height: var(--island-code-line-height);
+  font-size: var(--island-code-font-size);
+  color: var(--island-code-line-number-color);
+  transition: border-color 0.5s, color 0.5s;
+  display: flex;
+  flex-direction: column;
+}
+
+.hifa-doc.line-number-disable .line-numbers-wrapper {
+  display: none;
+}

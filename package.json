@@ -21,6 +21,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "dev:docs": "hifa dev docs",
+    "build:docs": "hifa build docs",
     "test": "vitest"
   },
   "devDependencies": {

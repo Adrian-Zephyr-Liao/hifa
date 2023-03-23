@@ -5,6 +5,8 @@ import rehypePluginAutolinkHeadings from 'rehype-autolink-headings'
 import rehypePluginSlug from 'rehype-slug'
 import remarkPluginMDXFrontMatter from 'remark-mdx-frontmatter'
 import remarkPluginFrontmatter from 'remark-frontmatter'
+import { rehypePluginPreWrapper } from './rehypePlugins/preWrapper'
+import { rehypePluginLineNumbers } from './rehypePlugins/lineNumbers'
 
 export function pluginMdxRollup() {
   return [
@@ -28,6 +30,8 @@ export function pluginMdxRollup() {
             },
           },
         ],
+        rehypePluginPreWrapper,
+        rehypePluginLineNumbers,
       ],
       jsx: true,
     }),

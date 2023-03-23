@@ -3,3 +3,8 @@ declare module 'hifa:site-data' {
   const siteData: UserConfig;
   export default siteData;
 }
+
+declare module 'hifa:pages' {
+  import { RouteRecordRaw } from 'vue-router';
+  export const routes: RouteRecordRaw[];
+}
