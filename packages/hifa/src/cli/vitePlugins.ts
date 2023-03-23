@@ -12,9 +12,9 @@ export function createVitePlugins(
   restartServer?: () => Promise<void>,
 ) {
   return [
+    pluginUnocss(unocssOptions),
     pluginIndexHtml(),
     pluginVue(),
-    pluginUnocss(unocssOptions),
     pluginConfig(config, restartServer),
     pluginRoutes({
       root: config.root,
