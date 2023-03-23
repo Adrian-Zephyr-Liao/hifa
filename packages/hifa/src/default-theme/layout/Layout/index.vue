@@ -9,7 +9,7 @@ const add = () => {
 </script>
 
 <template>
-  <div>
+  <div p="2" m="4">
     This is Layout Component {{ siteData.title }}
     <span>当前值: {{ num }}</span>
     <button @click="add">

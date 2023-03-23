@@ -1,5 +1,6 @@
 extends:
   - '@antfu'
+  - '@unocss'
   - 'plugin:mdx/recommended'
 rules:
   no-console: 0
